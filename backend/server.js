@@ -8,7 +8,7 @@ import authRoutes from "./routes/authRoutes.js";
 dotenv.config();
 const app = express();
 app.use(cors({
-  origin: "http://localhost:5173", 
+  origin: "https://bingewatchers-1.onrender.com", 
   methods: ["GET","POST","DELETE","PUT","PATCH"]
 }));
 
