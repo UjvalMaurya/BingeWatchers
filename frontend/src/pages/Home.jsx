@@ -85,7 +85,7 @@ export default function Home() {
 
       {/* Intro Section */}
       <div className="flex flex-col items-center justify-center mt-16 text-center space-y-6 max-w-3xl">
-        <h1 className="text-5xl font-extrabold tracking-tight">Welcome to BingeWatchers</h1>
+        <h1 className="text-5xl font-extrabold tracking-tight">Welcome to Watchlist GraveWard</h1>
         <p className="text-lg sm:text-xl text-gray-300">
           Discover your next favorite show or movie! Browse Anime, Web Series, Movie Series, Animated Movies, and Single Movies.
           Track what you've watched, explore connections, and never miss a sequel or spin-off.
