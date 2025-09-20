@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useAuth } from "../context/AuthContext.jsx";
 
-const API_URL = "http://localhost:5000/api/content";
+const API_URL = `${import.meta.env.VITE_API_URL}/api/content`;
 
 export const getContentByType = async (type, token) => {
   try {

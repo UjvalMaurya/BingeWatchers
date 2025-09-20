@@ -34,7 +34,7 @@ export default function AddAnimatedMovie() {
     setLoading(true);
 
     try {
-      const res = await fetch("http://localhost:5000/api/content", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/content`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,7 +46,7 @@ export default function AddAnimatedMovie() {
       const data = await res.json();
 
       if (res.ok) {
-        toast.success("✅ Animated Movie Added Successfully!", { autoClose: 2000 });
+        toast.success(" Animated Movie Added Successfully!", { autoClose: 2000 });
 
         // Reset form
         setForm({
@@ -60,11 +60,11 @@ export default function AddAnimatedMovie() {
         // Redirect to view page after 2 seconds
         setTimeout(() => navigate("/view/animatedmovie"), 2000);
       } else {
-        toast.error("❌ Error: " + (data.message || data.error));
+        toast.error(" Error: " + (data.message || data.error));
       }
     } catch (err) {
       console.error(err);
-      toast.error("❌ Something went wrong!");
+      toast.error(" Something went wrong!");
     } finally {
       setLoading(false);
     }

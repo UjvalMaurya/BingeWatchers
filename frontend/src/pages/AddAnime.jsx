@@ -31,7 +31,7 @@ export default function AddAnime() {
 
     const fetchContent = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/content", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/content`, {
           headers: {
             "Authorization": `Bearer ${token}`,
           },
@@ -77,7 +77,7 @@ export default function AddAnime() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/content", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/content`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

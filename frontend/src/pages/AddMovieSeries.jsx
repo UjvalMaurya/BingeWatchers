@@ -29,7 +29,7 @@ export default function AddMovieSeries() {
 
     const fetchContent = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/content", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/content`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
@@ -73,7 +73,7 @@ export default function AddMovieSeries() {
     }
 
     try {
-      const res = await fetch("http://localhost:5000/api/content", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/content`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -98,11 +98,11 @@ export default function AddMovieSeries() {
 
         setTimeout(() => navigate("/view/movieseries"), 2000);
       } else {
-        toast.error("❌ Error: " + (data.message || data.error));
+        toast.error(" Error: " + (data.message || data.error));
       }
     } catch (err) {
       console.error(err);
-      toast.error("❌ Something went wrong!");
+      toast.error(" Something went wrong!");
     }
   };
 
