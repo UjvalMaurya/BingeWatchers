@@ -7,9 +7,23 @@ import authRoutes from "./routes/authRoutes.js";
 
 dotenv.config();
 const app = express();
+
+const allowedOrigins = [
+  "http://localhost:5173", 
+  "https://the-watchlist-graveyard.onrender.com"
+];
+
 app.use(cors({
-  origin: "https://bingewatchers-1.onrender.com", 
-  methods: ["GET","POST","DELETE","PUT","PATCH"]
+  origin: function(origin, callback) {
+    // allow requests with no origin (like mobile apps or curl)
+    if(!origin) return callback(null, true);
+    if(allowedOrigins.indexOf(origin) === -1){
+      const msg = `The CORS policy for this site does not allow access from the specified Origin.`;
+      return callback(new Error(msg), false);
+    }
+    return callback(null, true);
+  },
+  credentials: true, // if you use cookies or auth headers
 }));
 
 app.use(express.json());
