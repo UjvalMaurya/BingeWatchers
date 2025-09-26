@@ -7,7 +7,6 @@ export default function ContentCard({ content }) {
   const [overlayVisible, setOverlayVisible] = useState(false);
   const cardRef = useRef(null);
 
-  // Close overlay when tapping/clicking outside the card (mobile friendly)
   useEffect(() => {
     if (!overlayVisible) return;
     const onPointerDown = (e) => {
@@ -69,6 +68,35 @@ export default function ContentCard({ content }) {
           <p className="text-gray-400 text-xs">
             {content.seasons} Season(s), {content.totalEpisodes} Episode(s)
           </p>
+        )}
+
+        {/* ✅ Connected Content */}
+        {content.connections && (
+          <div className="mt-2 space-y-1">
+            {["prequel", "sequel", "spinOff", "sharedUniverse"].map((key) =>
+              content.connections[key]?.length ? (
+                <div key={key}>
+                  <h3 className="text-xs text-gray-300 capitalize">
+                    {key === "spinOff"
+                      ? "Spin-Off"
+                      : key === "sharedUniverse"
+                      ? "Shared Universe"
+                      : key}
+                  </h3>
+                  <div className="flex flex-wrap gap-1">
+                    {content.connections[key].map((c) => (
+                      <span
+                        key={c._id}
+                        className="text-[11px] bg-gray-700 px-2 py-1 rounded text-white"
+                      >
+                        {c.title}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ) : null
+            )}
+          </div>
         )}
 
         {/* Close button → only visible on mobile */}

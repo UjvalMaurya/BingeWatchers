@@ -31,7 +31,7 @@ export default function AddWebSeries() {
 
     const fetchContent = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/content", {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/content`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 
