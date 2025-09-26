@@ -16,12 +16,12 @@ export default function Home() {
   const { user, logout } = useAuth();
 
   const sections = [
-    { key: "anime", label: "Anime", icon: <FaTv size={24} /> },
-    { key: "webseries", label: "Web Series", icon: <FaPlayCircle size={24} /> },
-    { key: "movieseries", label: "Movie Series", icon: <FaFilm size={24} /> },
-    { key: "animatedmovie", label: "Animated Movies", icon: <FaRegLaughBeam size={24} /> },
-    { key: "singlemovie", label: "Single Movies", icon: <FaStar size={24} /> },
-    { key: "book", label: "Books", icon: <FaBook size={24} /> },
+    { key: "anime", label: "Add Anime", icon: <FaTv size={24} /> },
+    { key: "webseries", label: "Add Web Series", icon: <FaPlayCircle size={24} /> },
+    { key: "movieseries", label: "Add Movie Series", icon: <FaFilm size={24} /> },
+    { key: "animatedmovie", label: "Add Animated Movies", icon: <FaRegLaughBeam size={24} /> },
+    { key: "singlemovie", label: "Add Single Movies", icon: <FaStar size={24} /> },
+    { key: "book", label: "Add Books", icon: <FaBook size={24} /> },
   ];
 
   const handleRedirect = (path) => {
